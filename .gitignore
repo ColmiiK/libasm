@@ -1,4 +1,5 @@
 *.o
+*.a
 obj/
 a.out
 main
