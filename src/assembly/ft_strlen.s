@@ -23,3 +23,5 @@ ft_strlen:
   cmp byte [rdi], 0 ; Is the pointer at 0, if not
   jne .loop ; Repeat the loop
   ret
+
+section .note.GNU-stack noalloc noexec nowrite
