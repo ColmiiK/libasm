@@ -30,7 +30,6 @@ void zero_length_write(int n, int fd, const char *msg, size_t len) {
 
 void test_ft_write(void) {
   printf(CYAN "========== Testing ft_write ==========\n" RESET);
-  printf(YELLOW " Correct Usage\n" RESET);
   const char *msg = "Hello World!\n";
   const size_t len = strlen(msg);
   const int fd = 1;
@@ -46,6 +45,4 @@ void test_ft_write(void) {
   invalid_fd(n, fd, msg, len);
   null_buffer(n, fd, msg, len);
   zero_length_write(n, fd, msg, len);
-
-  printf(CYAN "========== End of ft_write tests ==========\n" RESET);
 }
