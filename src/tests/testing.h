@@ -25,5 +25,7 @@ void test_ft_strlen(void);
 // Utils
 void print_error_success(void);
 void print_success(const char *msg);
+void print_error(void);
+void print_custom_error(const char *msg);
 
 #endif

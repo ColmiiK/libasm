@@ -15,7 +15,7 @@ NASM := nasm
 NASMFLAGS := -f elf64
 AR := ar rcs
 CC := gcc
-CFLAGS := -Wall -Wextra -Werror -Wno-unused-parameter  -g
+CFLAGS := -Wall -Wextra -Werror -Wno-unused-parameter -Wno-unused-variable  -g
 
 # Colors
 DEF_COLOR = \033[0;39m
