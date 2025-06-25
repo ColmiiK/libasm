@@ -9,7 +9,7 @@ section .text
 ;   rsi = where to write the bytes
 ;   rdx = how many bytes to read
 ; Returns
-;   rax = amount of bytes read
+;   rax = amount of bytes read, or -1 and sets errno
 ; ==========================================================
 ft_read:
   mov rax, 0 ; System call for read
@@ -20,12 +20,10 @@ ft_read:
 
 .handle_error:
   neg rax ; Turn error code positive
-  push rdi ; Store rdi
   mov rdi, rax ; Store error code
   call __errno_location wrt ..plt ; Get location of errno
   mov [rax], rdi ; Put error code in errno
   mov rax, -1 ; Return -1
-  pop rdi ; Restore rdi
   ret
 
 section .note.GNU-stack noalloc noexec nowrite
