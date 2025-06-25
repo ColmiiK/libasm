@@ -50,9 +50,6 @@ void test_error_read(char *file, int bytes) {
 void test_ft_read(void) {
   printf(CYAN "========== Testing ft_read ==========\n" RESET);
   printf(YELLOW " Correct Usage\n" RESET);
-  int fd = open("Makefile_test", O_RDONLY);
-  if (fd < 0)
-    exit(1);
 
   test_success_read("testfile.txt", 1);
   test_success_read("testfile.txt", 3);
