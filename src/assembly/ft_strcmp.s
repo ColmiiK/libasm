@@ -19,10 +19,17 @@ ft_strcmp:
 .loop:
   mov al, [rdi]
   mov bl, [rsi]
-  cmp al, bl
   inc rdi
   inc rsi
+  test al, al
+  je .done
+  test bl, bl
+  je .done
+  cmp al, bl
   je .loop
+  ret
+
+.done:
   ret
 
 section .note.GNU-stack noalloc noexec nowrite
