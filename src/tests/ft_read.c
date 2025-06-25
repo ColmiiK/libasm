@@ -9,7 +9,7 @@ void test_success_read(char *file, int bytes) {
   int c_n = ft_read(c_fd, c_buffer, bytes);
   int o_n = read(o_fd, o_buffer, bytes);
   char buf[4096 * 2];
-  snprintf(buf, 4096, "\tOutput:\t\t'%s' -> %d\n\tExpected:\t'%s' -> %d",
+  snprintf(buf, 4096, "\tOutput:\t%15.15s -> %4d\tExpected:\t%15.15s -> %4d",
            c_buffer, c_n, o_buffer, o_n);
   if (c_n != o_n || strcmp(c_buffer, o_buffer))
     failure(buf);

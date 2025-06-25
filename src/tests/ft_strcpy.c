@@ -7,7 +7,7 @@ void test_success_strcpy(char *dst, char *src) {
   char *c_buffer = ft_strcpy(c_dst, src);
   char *o_buffer = strcpy(o_dst, src);
   char buf[1024];
-  sprintf(buf, "\tOutput:\t\t'%s'\n\tExpected:\t'%s'", c_buffer, o_buffer);
+  sprintf(buf, "\tOutput:%15s\tExpected:%15s", c_buffer, o_buffer);
   if (strcmp(c_buffer, o_buffer))
     failure(buf);
   else
