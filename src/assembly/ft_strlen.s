@@ -20,7 +20,8 @@ ft_strlen:
 
 .loop:
   inc rdi ; Advance the pointer
-  cmp byte [rdi], 0 ; Is the pointer at 0, if not
+  mov al, [rdi] ; Take the byte
+  test al, al ; Is the byte null
   jne .loop ; Repeat the loop
   ret
 
