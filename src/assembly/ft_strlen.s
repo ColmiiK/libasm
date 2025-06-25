@@ -10,19 +10,15 @@ section .text
 ;   rax = length of the string
 ; ==========================================================
 ft_strlen:
-  push rdi ; Save the string to compare it later
-  dec rdi ; Decrement it once in case the string is 0 chars
-  call .loop
-  sub rdi, [rsp] ; New ptr - old ptr
-  mov rax, rdi ; Return value
-  pop rdi ; Restore string
-  ret
+  xor rax, rax ; Set counter to 0
 
 .loop:
-  inc rdi ; Advance the pointer
-  mov al, [rdi] ; Take the byte
-  test al, al ; Is the byte null
-  jne .loop ; Repeat the loop
+  cmp byte [rdi + rax], 0 ; Check if ptr + counter is 0
+  je .done
+  inc rax
+  jmp .loop
+
+.done:
   ret
 
 section .note.GNU-stack noalloc noexec nowrite

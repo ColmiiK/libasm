@@ -12,10 +12,6 @@ section .text
 ; ==========================================================
 ft_strcpy:
   mov rdx, rdi ; Store the original ptr
-  call .loop
-  mov rax, rdx ; Return the original ptr
-  ret
-
 .loop:
   mov al, [rsi] ; Take a byte
   mov [rdi], al ; Move that byte to dst
@@ -23,9 +19,10 @@ ft_strcpy:
   inc rsi ; Advance src
   test al, al ; Is dst at null?
   jne .loop
-  mov al, [rdi]
-  test al, al ; Is src at null?
-  jne .loop
+  ; mov al, [rdi]
+  ; test al, al ; Is src at null?
+  ; jne .loop
+  mov rax, rdx
   ret
 
 section .note.GNU-stack noalloc noexec nowrite
