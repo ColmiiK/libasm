@@ -3,16 +3,16 @@
 void test_string(const char *msg) {
   int n = ft_strlen(msg);
   if (n == -1)
-    print_error();
+    err();
   else {
     if (n != (int)strlen(msg)) {
       char buf[1024];
       sprintf(buf, "%s -> Output: %d, Expected: %ld", msg, n, strlen(msg));
-      print_custom_error(buf);
+      failure(buf);
     } else {
       char buf[1024];
       sprintf(buf, "%s -> Output: %d, Expected: %ld", msg, n, strlen(msg));
-      print_success(buf);
+      success(buf);
     }
   }
 }

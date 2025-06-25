@@ -3,8 +3,10 @@
 #define TESTING_H
 
 #include <errno.h>
+#include <fcntl.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
@@ -31,9 +33,9 @@ void test_ft_strcmp(void);
 void test_ft_strdup(void);
 
 // Utils
-void print_error_success(void);
-void print_success(const char *msg);
-void print_error(void);
-void print_custom_error(const char *msg);
+void success(const char *msg);
+void success_error(void);
+void failure(const char *msg);
+void err(void);
 
 #endif
