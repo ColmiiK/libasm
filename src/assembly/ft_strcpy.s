@@ -15,13 +15,10 @@ ft_strcpy:
 .loop:
   mov al, [rsi] ; Take a byte
   mov [rdi], al ; Move that byte to dst
-  inc rdi ; Advance dst 
+  inc rdi ; Advance dst
   inc rsi ; Advance src
   test al, al ; Is dst at null?
   jne .loop
-  ; mov al, [rdi]
-  ; test al, al ; Is src at null?
-  ; jne .loop
   mov rax, rdx
   ret
 

@@ -11,11 +11,6 @@ section .text
 ;   rax = difference between s1 and s2
 ; ==========================================================
 ft_strcmp:
-  call .loop
-  sub al, bl ; Get the difference
-  movsx rax, al ; Move al into rax, padding with zeroes
-  ret
-
 .loop:
   mov al, [rdi] ; Take a byte
   mov bl, [rsi] ; Take a byte
@@ -27,9 +22,10 @@ ft_strcmp:
   je .done
   cmp al, bl ; Check if the bytes are different
   je .loop
-  ret
 
 .done:
+  sub al, bl ; Get the difference
+  movsx rax, al ; Move al into rax, padding with zeroes
   ret
 
 section .note.GNU-stack noalloc noexec nowrite

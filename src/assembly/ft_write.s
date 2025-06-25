@@ -12,7 +12,6 @@ section .text
 ;   rax = number of bytes written, or -1 and sets errno 
 ; ==========================================================
 ft_write:
-
   mov rax, 1 ; Set the syscall for write
   syscall
   cmp rax, 0 ; Set the CPU Sign flag (SF) if rax is negative
