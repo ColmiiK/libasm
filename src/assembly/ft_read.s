@@ -12,20 +12,20 @@ section .text
 ;   rax = amount of bytes read
 ; ==========================================================
 ft_read:
-  mov rax, 0
+  mov rax, 0 ; System call for read
   syscall
-  cmp rax, 0
-  jl .handle_error
+  cmp rax, 0 ; Set the SF flag
+  jl .handle_error ; Jump if flag is set
   ret
 
 .handle_error:
-  neg rax
-  push rdi
-  mov rdi, rax
-  call __errno_location wrt ..plt
-  mov [rax], rdi
-  mov rax, -1
-  pop rdi
+  neg rax ; Turn error code positive
+  push rdi ; Store rdi
+  mov rdi, rax ; Store error code
+  call __errno_location wrt ..plt ; Get location of errno
+  mov [rax], rdi ; Put error code in errno
+  mov rax, -1 ; Return -1
+  pop rdi ; Restore rdi
   ret
 
 section .note.GNU-stack noalloc noexec nowrite
