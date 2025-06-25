@@ -12,20 +12,20 @@ section .text
 ; ==========================================================
 ft_strcmp:
   call .loop
-  sub al, bl
-  movsx rax, al
+  sub al, bl ; Get the difference
+  movsx rax, al ; Move al into rax, padding with zeroes
   ret
 
 .loop:
-  mov al, [rdi]
-  mov bl, [rsi]
-  inc rdi
+  mov al, [rdi] ; Take a byte
+  mov bl, [rsi] ; Take a byte
+  inc rdi ; Prepare for the next iteration
   inc rsi
-  test al, al
+  test al, al ; Check if s1 is done
   je .done
-  test bl, bl
+  test bl, bl ; Check if s2 is done
   je .done
-  cmp al, bl
+  cmp al, bl ; Check if the bytes are different
   je .loop
   ret
 
