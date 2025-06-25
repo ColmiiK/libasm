@@ -1,6 +1,4 @@
 #include "testing.h"
-#include <fcntl.h>
-#include <string.h>
 
 void test_success_read(char *file, int bytes) {
   char c_buffer[1024], o_buffer[1024];
