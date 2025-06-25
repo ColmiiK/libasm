@@ -6,15 +6,12 @@ void test_success_strcpy(char *dst, char *src) {
   strcpy(o_dst, dst);
   char *c_buffer = ft_strcpy(c_dst, src);
   char *o_buffer = strcpy(o_dst, src);
-  if (strcmp(c_buffer, o_buffer)) {
-    char buf[1024];
-    sprintf(buf, "\tOutput:\t\t'%s'\n\tExpected:\t'%s'", c_buffer, o_buffer);
+  char buf[1024];
+  sprintf(buf, "\tOutput:\t\t'%s'\n\tExpected:\t'%s'", c_buffer, o_buffer);
+  if (strcmp(c_buffer, o_buffer))
     failure(buf);
-  } else {
-    char buf[1024];
-    sprintf(buf, "\tOutput:\t\t'%s'\n\tExpected:\t'%s'", c_buffer, o_buffer);
+  else
     success(buf);
-  }
   memset(c_buffer, 0, 1024);
   memset(o_buffer, 0, 1024);
 }

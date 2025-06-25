@@ -8,17 +8,13 @@ void test_success_read(char *file, int bytes) {
   int o_fd = open(file, O_RDONLY);
   int c_n = ft_read(c_fd, c_buffer, bytes);
   int o_n = read(o_fd, o_buffer, bytes);
-  if (c_n != o_n || strcmp(c_buffer, o_buffer)) {
-    char buf[4096 * 2];
-    snprintf(buf, 4096, "\tOutput:\t\t'%s' -> %d\n\tExpected:\t'%s' -> %d",
-             c_buffer, c_n, o_buffer, o_n);
+  char buf[4096 * 2];
+  snprintf(buf, 4096, "\tOutput:\t\t'%s' -> %d\n\tExpected:\t'%s' -> %d",
+           c_buffer, c_n, o_buffer, o_n);
+  if (c_n != o_n || strcmp(c_buffer, o_buffer))
     failure(buf);
-  } else {
-    char buf[4096 * 2];
-    snprintf(buf, 4096, "\tOutput:\t\t'%s' -> %d\n\tExpected:\t'%s' -> %d",
-             c_buffer, c_n, o_buffer, o_n);
+  else
     success(buf);
-  }
   memset(c_buffer, 0, 1024);
   memset(o_buffer, 0, 1024);
   close(c_fd);

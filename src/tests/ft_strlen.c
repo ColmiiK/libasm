@@ -5,15 +5,12 @@ void test_string(const char *msg) {
   if (n == -1)
     err();
   else {
-    if (n != (int)strlen(msg)) {
-      char buf[1024];
-      sprintf(buf, "%s -> Output: %d, Expected: %ld", msg, n, strlen(msg));
+    char buf[1024];
+    sprintf(buf, "%s -> Output: %d, Expected: %ld", msg, n, strlen(msg));
+    if (n != (int)strlen(msg))
       failure(buf);
-    } else {
-      char buf[1024];
-      sprintf(buf, "%s -> Output: %d, Expected: %ld", msg, n, strlen(msg));
+    else
       success(buf);
-    }
   }
 }
 
