@@ -11,19 +11,20 @@ section .text
 ;   rax = pointer to destination string
 ; ==========================================================
 ft_strcpy:
-  mov rdx, rdi
+  mov rdx, rdi ; Store the original ptr
   call .loop
-  mov rax, rdx
+  mov rax, rdx ; Return the original ptr
   ret
 
 .loop:
-  mov al, [rsi]
-  mov [rdi], al
-  inc rdi
-  inc rsi
-  cmp byte [rdi], 0
+  mov al, [rsi] ; Take a byte
+  mov [rdi], al ; Move that byte to dst
+  inc rdi ; Advance dst 
+  inc rsi ; Advance src
+  test al, al ; Is dst at null?
   jne .loop
-  cmp byte [rsi], 0
+  mov al, [rdi]
+  test al, al ; Is src at null?
   jne .loop
   ret
 
